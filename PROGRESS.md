@@ -11,7 +11,7 @@
 ## Gates
 
 - `npm run check`: PASS (typecheck, ESLint, strict content validation, contrast, optimized static export, and bundle budgets).
-- `npm run test:e2e` with installed system Chrome: PASS, 31/31 tests. Includes story editorial/no-iframe behavior, keyboard menu/gallery behavior, booking and 404 states, axe checks at 375px and 1440px on all 12 routes, and 120 viewport screenshots (10 widths × 12 routes).
+- Earlier baseline `npm run test:e2e` with system Chrome: PASS, 31/31 tests before Change Order 01. This is not the final Change Order browser result; see the gate notes below.
 - Screenshot visual review: PASS for home at 375px/1440px, story at 320px/1440px, and music/gallery at 375px. Supplied images wait for decode in the screenshot matrix.
 - Core contrast: PASS — body 18.64:1, accent 17.20:1, muted 5.90:1 against the dark background.
 - Initial home JavaScript: 137.8 KiB gzip (170 KiB budget). Lazy Frequency Canvas chunk: 0.8 KiB gzip (250 KiB budget).
