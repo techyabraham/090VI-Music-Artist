@@ -52,3 +52,7 @@
 - Six Instagram reels were supplied and entered into `data/reactions.ts`; unnecessary sharing tokens were removed. Original post IDs: DG534zkinXv, DG47jhpCmO_, DGgj7NGi3xV, DGY2yX6i0LG, DGYLVspCXHn, DGJ1qPjPd-H.
 - The web reader could not retrieve the original reel pages, so creator handles, song labels and quotes are not invented. Cards use abstract graphics with neutral reaction numbers; the original Instagram player preserves post attribution. Playback is loaded only on click, with direct Instagram links available if embeds are restricted or require sign-in.
 - No additional song streaming URLs were included in the follow-up; all existing owner-supplied links are integrated with platform marks where available.
+
+### Portrait replacement
+
+- The user supplied `public/images/artist/portrait1.png` (1443 × 1090). The build converts it to a compressed JPEG and responsive variants; homepage visuals and Story imagery now retain its landscape frame. Old portrait files present as deleted in the worktree were left untouched.

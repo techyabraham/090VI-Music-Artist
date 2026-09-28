@@ -27,7 +27,7 @@ Set `NEXT_PUBLIC_SITE_URL` to the production origin before building so canonical
 
 - **Release:** edit `data/releases.ts`, provide a stable kebab-case slug, ISO date and date precision, provenance, and owner-approved streaming links. Drop square artwork into `source-assets/images/releases/<slug>.jpg`, update the asset reference, then run `npm run validate:content` and `npm run build`.
 - **Gallery:** add originals to `source-assets/images/gallery`, update the owner-approved captions and intrinsic pixel dimensions in `data/gallery.ts`, then build. The image pipeline emits AVIF and WebP variants.
-- **Artist images:** replace files under `source-assets/images/artist` and update `data/artist.ts` dimensions and alt text.
+- **Artist images:** replace files under `source-assets/images/artist` and update `data/artist.ts` dimensions and alt text. The supplied `public/images/artist/portrait1.png` is the current wide portrait; `npm run prepare:assets` converts it to a quality-90 `portrait1.jpg` and creates responsive AVIF/WebP files. Keep the PNG as the source, since the build refreshes generated images from its modification time. Its 1443 × 1090 frame is preserved in the homepage and Story layouts.
 - **Audio/video:** use `public/audio/previews` and `public/video`; confirm usage rights, clip length, captions, poster, and title before adding records.
 - **Story and EPK:** update the owner-supplied source files under `public/press`. The Story page presents the adapted narrative as editorial website content; the original story and bio PDFs remain available in the press room.
 - Run `npm run validate:content -- --strict` before deployment. It checks slugs, dates, URLs, and referenced local media and writes `CONTENT_REPORT.generated.md`.

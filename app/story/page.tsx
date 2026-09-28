@@ -19,7 +19,7 @@ export default function StoryPage(){
         <p className="story-deck">A sound shaped by the feelings beneath the surface.</p>
       </div>
       <figure className="story-portrait">
-        <Picture src="/images/artist/portrait.jpg" alt="Portrait of 090VI" width={819} height={1024} priority sizes="(max-width: 750px) 100vw, 46vw"/>
+        <Picture className="artist-landscape" src="/images/artist/portrait1.jpg" alt="090VI singing into a microphone among other performers" width={1443} height={1090} priority sizes="(max-width: 750px) 100vw, 52vw"/>
         <figcaption><span>090VI</span><span>LAGOS · AFROPOP</span></figcaption>
       </figure>
       <span className="story-vertical" aria-hidden="true">A POINT OF VIEW · 090VI</span>
