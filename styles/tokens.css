@@ -1,0 +1,2 @@
+:root{--bg:#050505;--surface:#101010;--surface-2:#171717;--line:rgba(245,245,240,.12);--text:#F5F5F0;--muted:#8A8A8A;--accent:#C6FF1A;--accent-ink:#050505;--danger:#FF4D3D;--focus:#C6FF1A}
+:root[data-era="02"]{--accent:#FF3B2F;--focus:#FF3B2F}

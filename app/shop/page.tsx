@@ -1,0 +1,1 @@
+import type {Metadata} from 'next'; import {site} from '../../data/site.config'; export const metadata:Metadata={title:'Shop',robots:{index:site.features.shop,follow:site.features.shop}}; export default function Shop(){return <section className="section page-section"><p className="eyebrow">090VI / SHOP</p><h1>Coming soon.</h1><p>The shop is not available yet.</p></section>}

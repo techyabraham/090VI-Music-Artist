@@ -1,0 +1,3 @@
+import type {MetadataRoute} from 'next'; import {site} from '../data/site.config'; import {getPublishedReleases} from '../lib/content';
+export const dynamic='force-static';
+export default function sitemap():MetadataRoute.Sitemap{const routes:[string,boolean][]=[['music',true],['visuals',site.features.visuals],['story',site.features.story],['live',site.features.live],['gallery',site.features.gallery],['press',site.features.press],['book',site.features.booking]];return [{url:site.url,changeFrequency:'monthly',priority:1},...routes.filter(([,enabled])=>enabled).map(([route])=>({url:`${site.url}/${route}/`,changeFrequency:'monthly' as const,priority:.7})),...getPublishedReleases().map(r=>({url:`${site.url}/music/${r.slug}/`,changeFrequency:'yearly' as const,priority:.6}))]}

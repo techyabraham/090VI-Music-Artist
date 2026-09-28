@@ -1,0 +1,11 @@
+import { releases } from '../data/releases'; import { videos } from '../data/videos'; import { events } from '../data/events'; import { gallery } from '../data/gallery';
+import {links} from '../data/links';import {pressFiles} from '../data/press';import {artist} from '../data/artist';
+export const getPublishedReleases=()=>releases.filter(r=>r.published);
+export const getLatestRelease=()=>getPublishedReleases().toSorted((a,b)=>b.releaseDate.localeCompare(a.releaseDate))[0];
+export const getReleaseBySlug=(slug:string)=>getPublishedReleases().find(r=>r.slug===slug);
+export const getVideos=()=>videos;
+export const getUpcomingEvents=()=>events.filter(e=>e.status==='upcoming'||e.status==='soldout');
+export const getGallery=()=>gallery;
+export const getStreamingLinks=()=>links;
+export const getPressFiles=()=>pressFiles;
+export const getArtist=()=>artist;

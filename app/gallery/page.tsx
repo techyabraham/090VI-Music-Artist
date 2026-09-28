@@ -1,0 +1,3 @@
+import type {Metadata} from 'next'; import {GalleryGrid} from '../../components/GalleryGrid'; import {getGallery} from '../../lib/content'; import {ErrorBoundary} from '../../components/ErrorBoundary';
+export const metadata:Metadata={title:'Gallery',description:'Owner-supplied images of 090VI.',alternates:{canonical:'/gallery/'}};
+export default function GalleryPage(){return <section className="section page-section"><p className="eyebrow">090VI / GALLERY</p><h1>Between moments.</h1><p className="small-note">Captions supplied with the photographs.</p><ErrorBoundary label="Gallery viewer"><GalleryGrid items={getGallery()}/></ErrorBoundary></section>}

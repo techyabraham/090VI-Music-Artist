@@ -1,0 +1,8 @@
+node_modules/
+.next/
+out/
+lhci_reports/
+playwright-report/
+test-results/
+tests/visual/out/
+*.tsbuildinfo

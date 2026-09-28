@@ -1,0 +1,1 @@
+import type {Metadata} from 'next'; import {site} from '../../data/site.config'; export const metadata:Metadata={title:'Vault',robots:{index:site.features.vault,follow:site.features.vault}}; export default function Vault(){return <section className="section page-section"><p className="eyebrow">090VI / VAULT</p><h1>Coming soon.</h1><p>The vault is not available yet.</p></section>}

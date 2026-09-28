@@ -1,0 +1,3 @@
+import type { GalleryImage } from './types';
+const items:[string,number,number][]=[['090VI performing at a royal event',889,673],['090VI chilling before a performance',1024,581],['When he is not singing, he can be a great wordsmith',1024,1024],['The smile behind the art',960,1280],['Sefie time is a lone creative time',768,1025],['Ready to perform at an event',600,399],['The Atist, 090VI',959,1280],["Let's have some serenity",1080,1350]];
+export const gallery: GalleryImage[] = items.map(([caption,width,height],i)=>{const n=i+1;return{id:String(n),caption,image:{src:`/images/gallery/${n}.${n===2?'png':'jpg'}`,alt:caption,width,height},provenance:{verified:false,source:'Owner-supplied gallery captions file'}}});

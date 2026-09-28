@@ -1,0 +1,1 @@
+export const pressFiles=[{label:'Artist biography',href:'/press/bio.pdf'},{label:'Story copy',href:'/press/Story%20Copy.pdf'},{label:'Press photos',href:'/press/press-photos.zip'},{label:'Logo package',href:'/press/logos.zip'},{label:'090VI logo',href:'/press/090vi-logo.png'}];

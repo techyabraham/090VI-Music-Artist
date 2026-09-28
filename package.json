@@ -1,0 +1,39 @@
+{
+  "type": "module",
+  "dependencies": {
+    "next": "^16.3.6",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
+    "@lhci/cli": "^0.15.1",
+    "@playwright/test": "^1.63.0",
+    "@types/node": "^26.6.3",
+    "@types/react": "^19.3.0",
+    "eslint": "^9.39.5",
+    "eslint-config-next": "^16.3.6",
+    "postcss": "^8.5.28",
+    "sharp": "^0.35.5",
+    "tailwindcss": "^3.4.19",
+    "tsx": "^4.23.15",
+    "typescript": "^6.0.3",
+    "zod": "^4.6.5"
+  },
+  "scripts": {
+    "prebuild": "npm run prepare:assets && npm run validate:content -- --strict",
+    "build": "next build",
+    "dev": "next dev",
+    "start": "next start",
+    "serve:export": "node scripts/serve-export.mjs",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint app components data lib scripts tests next.config.ts tailwind.config.ts playwright.config.ts",
+    "validate:content": "node scripts/validate-content.ts",
+    "prepare:assets": "node scripts/build-images.mjs && node scripts/build-icons.mjs",
+    "contrast": "node scripts/contrast-check.mjs",
+    "test:e2e": "playwright test",
+    "size-check": "node scripts/size-check.mjs",
+    "check": "npm run typecheck && npm run lint && npm run validate:content -- --strict && npm run contrast && npm run build && npm run size-check",
+    "lighthouse": "lhci autorun"
+  }
+}
