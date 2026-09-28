@@ -19,7 +19,7 @@ export default function StoryPage(){
         <p className="story-deck">A sound shaped by the feelings beneath the surface.</p>
       </div>
       <figure className="story-portrait">
-        <Picture src="/images/artist/portrait.jpg" alt="090VI, in a quiet moment between frames" width={819} height={1024} priority sizes="(max-width: 750px) 100vw, 46vw"/>
+        <Picture src="/images/artist/portrait.jpg" alt="Portrait of 090VI" width={819} height={1024} priority sizes="(max-width: 750px) 100vw, 46vw"/>
         <figcaption><span>090VI</span><span>LAGOS · AFROPOP</span></figcaption>
       </figure>
       <span className="story-vertical" aria-hidden="true">A POINT OF VIEW · 090VI</span>
@@ -35,7 +35,7 @@ export default function StoryPage(){
     </section>
 
     <section className="story-image-break" aria-label="Portrait of 090VI">
-      <Picture src="/images/artist/hero.jpg" alt="090VI looking through the light, from the supplied artist image" width={1400} height={872} loading="lazy" sizes="100vw"/>
+      <Picture src="/images/artist/hero.jpg" alt="090VI in a supplied cinematic artist portrait" width={1400} height={872} loading="lazy" sizes="100vw"/>
       <p>Look again.<br/><span>There’s more there.</span></p>
     </section>
 
