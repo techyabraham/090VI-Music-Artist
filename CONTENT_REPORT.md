@@ -33,4 +33,22 @@
 - Other temporary/unconfigured states include Shop and Vault “Coming soon” pages while their feature flags are off, no announced live dates, and booking/contact/newsletter setup notes. These are explicit feature/configuration states, not fake completed integrations.
 - The reported raw `/audio/previews/Anike.mp3` URL is not rendered as link text in `components/Player.tsx`; no fix was needed.
 - Production metadata needs `NEXT_PUBLIC_SITE_URL` set in Vercel. Without it or Vercel’s production project host value, build output warns and uses localhost.
-- Deployed-site direct inspection, Windows OS `prefers-reduced-motion` value, and video stream metadata remain unverified. The final `npm run check` passed. Final post-change Playwright/axe/screenshot and Lighthouse verification could not run because the matching Chromium download timed out; see `PROGRESS.md`.
+- Deployed-site direct inspection, Windows OS `prefers-reduced-motion` value, and video stream metadata remain unverified. At the Change Order 01 handoff, browser installation blocked final verification; the subsequent experience update and full-site browser runs are recorded in the latest section of `PROGRESS.md`.
+
+
+## Experience additions (2026-09-28)
+
+- The owner requested a brighter hero, automatic slides, platform logos, merch, reactions, and WhatsApp/email booking. Existing supplied streaming URLs are used; six reaction URLs and both booking destinations were supplied in a follow-up.
+- The supplied merch actually resides in `public/merches/`. Both Lyrical Monster items are featured on the homepage and collection page with front/back artwork. No prices, stock, sizes, delivery promises or purchase confirmations have been invented.
+- The homepage Story placeholder was replaced with brief editorial invitation copy. The native Story page is preserved. Shop is now an active merch collection; earlier Shop-placeholder notes are historical.
+- Reactions have a shared data collection and homepage/Visuals section. Until actual video URLs and credits are supplied, the section links to YouTube discovery; no specific reactions are represented as verified.
+- Booking is implemented as a validated, reviewed draft handoff to the owner-confirmed +1 240 714 8161 and 090vi@gmail.com. These public defaults can be overridden through `.env.example` variables.
+- Platform marks: Simple Icons 16.33.0 (Apple Music, YouTube, Audiomack, Linktree), and 11.15.0 (Amazon Music). Boomplay remains a named link. Local license/source files accompany the SVGs.
+
+
+### Owner follow-up received
+
+- Confirmed WhatsApp destination: +1 240 714 8161. Booking email: 090vi@gmail.com. Both are active public defaults in `data/contact.ts` and are used for performance and merch enquiry drafts.
+- Six Instagram reels were supplied and entered into `data/reactions.ts`; unnecessary sharing tokens were removed. Original post IDs: DG534zkinXv, DG47jhpCmO_, DGgj7NGi3xV, DGY2yX6i0LG, DGYLVspCXHn, DGJ1qPjPd-H.
+- The web reader could not retrieve the original reel pages, so creator handles, song labels and quotes are not invented. Cards use abstract graphics with neutral reaction numbers; the original Instagram player preserves post attribution. Playback is loaded only on click, with direct Instagram links available if embeds are restricted or require sign-in.
+- No additional song streaming URLs were included in the follow-up; all existing owner-supplied links are integrated with platform marks where available.

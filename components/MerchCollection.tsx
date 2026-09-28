@@ -1,0 +1,5 @@
+'use client';
+import {useState} from 'react';
+import Link from 'next/link';
+import {merch} from '../data/merch';
+export function MerchCollection({compact=false}:{compact?:boolean}){const [backs,setBacks]=useState<Record<string,boolean>>({});return <div className={`merch-collection ${compact?'merch-compact':''}`}>{merch.map((item,i)=><article className="merch-card" key={item.id}><div className="merch-image-wrap"><span className="merch-edition">090VI / {String(i+1).padStart(2,'0')}</span><img src={backs[item.id]?item.back:item.front} width={525} height={662} alt={`${item.name} — ${backs[item.id]?'back':'front'} artwork`} loading="lazy"/><button className="merch-flip" onClick={()=>setBacks(v=>({...v,[item.id]:!v[item.id]}))} aria-label={`Show ${backs[item.id]?'front':'back'} of ${item.name}`}>↻ {backs[item.id]?'VIEW FRONT':'VIEW BACK'}</button></div><div className="merch-caption"><div><p className="eyebrow">{item.type}</p><h3>{item.name}</h3><p>{item.description}</p></div><Link className="text-link" href={compact?'/shop/':`/book/?merch=${encodeURIComponent(item.name)}`}>{compact?'EXPLORE':'ENQUIRE'} ↗</Link></div></article>)}</div>}

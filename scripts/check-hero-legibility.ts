@@ -1,6 +1,14 @@
-import sharp from 'sharp';
-const files=['public/images/artist/hero.jpg','public/images/artist/hero2.jpg'];
-const luminance=(r:number,g:number,b:number)=>{const channel=(value:number)=>{const v=value/255;return v<=.04045?v/12.92:((v+.055)/1.055)**2.4};return .2126*channel(r)+.7152*channel(g)+.0722*channel(b)};
-const whiteContrast=(background:number)=>(1.05)/(background+.05);
-function alphaAt(x:number,y:number){const stops:[[number,number],[number,number],[number,number],[number,number]]=[[0,1],[.26,.92],[.62,.5],[1,.25]];let bottom=stops[3][1];for(let i=0;i<stops.length-1;i++){const [a,va]=stops[i]!,[b,vb]=stops[i+1]!;if(y>=a&&y<=b){bottom=va+(vb-va)*(y-a)/(b-a);break}}const radius=Math.sqrt(((x-.5)/.68)**2+((y-.51)/.64)**2);const radial=radius<=.42?.97+(.88-.97)*radius/.42:radius<=.78?.88+(.4-.88)*(radius-.42)/.36:radius<=1?.4*(1-radius)/.22:0;const left=Math.max(0,.5*(1-x/.7));return 1-(1-bottom)*(1-radial)*(1-left)}
-let failed=false;for(const file of files){const {data,info}=await sharp(file).resize(100,100,{fit:'fill'}).removeAlpha().raw().toBuffer({resolveWithObject:true});let wordmark=Infinity,copy=Infinity;for(let y=30;y<72;y++)for(let x=10;x<90;x++){const i=(y*info.width+x)*info.channels;const bg=luminance(data[i]!,data[i+1]!,data[i+2]!)*(1-alphaAt(x/100,y/100));const ratio=whiteContrast(bg);wordmark=Math.min(wordmark,ratio);if(x>=34&&x<66&&y>=38&&y<65)copy=Math.min(copy,ratio)}console.log(`${file}: effective white contrast — wordmark ${wordmark.toFixed(2)}:1 (minimum 3:1), copy ${copy.toFixed(2)}:1 (minimum 4.5:1)`);if(wordmark<3||copy<4.5)failed=true}if(failed)throw new Error('Hero text contrast is below the configured scrim threshold.');
+import fs from 'node:fs';
+// Check the actual local text backplates against a worst-case pure white photo.
+// The portrait outside these text blocks does not need a dark blanket overlay.
+const css=fs.readFileSync('app/experience.css','utf8');
+const luminance=(v:number)=>{const s=v/255;return s<=.04045?s/12.92:((s+.055)/1.055)**2.4};
+for(const selector of ['hero-copy','hero-poetry']){
+ const rule=css.match(new RegExp(`\\.${selector}\\{([^}]+)\\}`))?.[1];
+ const alpha=Number(rule?.match(/background:rgba\(5,5,5,([.\d]+)\)/)?.[1]);
+ if(!alpha)throw new Error(`Cannot find the ${selector} text backplate`);
+ const background=255*(1-alpha)+5*alpha;
+ const ratio=(luminance(240)+.05)/(luminance(background)+.05);
+ console.log(`${selector}: minimum contrast ${ratio.toFixed(2)}:1 on a white photo (required 4.5:1)`);
+ if(ratio<4.5)throw new Error(`${selector} text contrast is below 4.5:1`);
+}
