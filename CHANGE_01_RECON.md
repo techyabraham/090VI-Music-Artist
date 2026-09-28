@@ -48,3 +48,9 @@ Read-only source and asset review before implementation (2026-09-28).
 3. Logo integration and asset generation.
 4. Slideshow, hero2 image derivatives, responsive/accessibility checks.
 5. Metadata, documentation, content report, export build, screenshots and final audit.
+
+## Final verification update (2026-09-28)
+
+- `npm run check` passes for the completed change. The missing production URL environment variable still produces a warning and localhost canonical fallback.
+- The menu's feature list omitted the enabled Music route from `data/site.config.ts`; implementation now explicitly enables it as the first menu item.
+- Chromium is not installed in this environment. Playwright tests could not launch; installing the required Chromium build timed out three times from `cdn.playwright.dev`. No final axe or Lighthouse result is claimed.

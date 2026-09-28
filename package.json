@@ -1,6 +1,8 @@
 {
   "type": "module",
   "dependencies": {
+    "@gsap/react": "^2.1.2",
+    "gsap": "^3.15.0",
     "next": "^16.3.6",
     "react": "^19.3.0",
     "react-dom": "^19.3.0"
@@ -21,7 +23,7 @@
     "zod": "^4.6.5"
   },
   "scripts": {
-    "prebuild": "npm run prepare:assets && npm run validate:content -- --strict",
+    "prebuild": "npm run prepare:assets && npm run validate:content -- --strict && npm run validate:hero",
     "build": "next build",
     "dev": "next dev",
     "start": "next start",
@@ -29,11 +31,14 @@
     "typecheck": "tsc --noEmit",
     "lint": "eslint app components data lib scripts tests next.config.ts tailwind.config.ts playwright.config.ts",
     "validate:content": "node scripts/validate-content.ts",
-    "prepare:assets": "node scripts/build-images.mjs && node scripts/build-icons.mjs",
+    "validate:hero": "node scripts/validate-hero.ts",
+    "prepare:assets": "npm run build:brand && node scripts/build-images.mjs",
+    "build:brand": "node scripts/build-brand.mjs",
     "contrast": "node scripts/contrast-check.mjs",
+    "check:hero": "node scripts/check-hero-legibility.ts",
     "test:e2e": "playwright test",
     "size-check": "node scripts/size-check.mjs",
-    "check": "npm run typecheck && npm run lint && npm run validate:content -- --strict && npm run contrast && npm run build && npm run size-check",
+    "check": "npm run typecheck && npm run lint && npm run validate:content -- --strict && npm run validate:hero && npm run contrast && npm run check:hero && npm run build && npm run size-check",
     "lighthouse": "lhci autorun"
   }
 }

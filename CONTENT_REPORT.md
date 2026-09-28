@@ -25,3 +25,12 @@
 
 - No booking form email target, newsletter provider, merch storefront, event listings, captions/subtitles, or additional track previews were supplied. No fake submission success state is shown.
 - No synthetic lyrics, credits, descriptions, event details, biography, or release URLs were added.
+
+## Change Order 01 additions
+
+- Added `public/images/logo.png` as the supplied 090VI wordmark and `public/images/artist/hero2.jpg` as a second still. Both were untracked owner-provided inputs at the start of this change. `public/video/hero.mp4` is 1,865,022 bytes, below the 2.5 MB limit. `ffmpeg`/`ffprobe` were not available, so codec, dimensions, duration, frame rate, and audio-track presence are **not measured**.
+- Placeholder requiring owner copy: “The artist’s supplied story copy.” in `app/page.tsx` (homepage Story teaser). Per the brief, it is reported rather than rewritten. The `/story/` page itself is designed editorial HTML, not an embedded PDF.
+- Other temporary/unconfigured states include Shop and Vault “Coming soon” pages while their feature flags are off, no announced live dates, and booking/contact/newsletter setup notes. These are explicit feature/configuration states, not fake completed integrations.
+- The reported raw `/audio/previews/Anike.mp3` URL is not rendered as link text in `components/Player.tsx`; no fix was needed.
+- Production metadata needs `NEXT_PUBLIC_SITE_URL` set in Vercel. Without it or Vercel’s production project host value, build output warns and uses localhost.
+- Deployed-site direct inspection, Windows OS `prefers-reduced-motion` value, and video stream metadata remain unverified. The final `npm run check` passed. Final post-change Playwright/axe/screenshot and Lighthouse verification could not run because the matching Chromium download timed out; see `PROGRESS.md`.

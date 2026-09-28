@@ -35,7 +35,7 @@ export default function StoryPage(){
     </section>
 
     <section className="story-image-break" aria-label="Portrait of 090VI">
-      <Picture src="/images/artist/hero.jpg" alt="090VI in a supplied cinematic artist portrait" width={1400} height={872} loading="lazy" sizes="100vw"/>
+      <Picture src="/images/gallery/3.jpg" alt="090VI in a supplied performance photograph" width={1024} height={1024} loading="lazy" sizes="100vw"/>
       <p>Look again.<br/><span>There’s more there.</span></p>
     </section>
 
